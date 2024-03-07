@@ -1,0 +1,39 @@
+{
+    "name": "gkralik/laminas-smarty-module",
+    "description": "Laminas module providing a Smarty rendering strategy",
+    "homepage": "https://github.com/gkralik/laminas-smarty-module",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Gregor Kralik",
+            "email": "g.kralik+gh@gmail.com"
+        }
+    ],
+    "type": "library",
+    "require": {
+        "php": "^8.1",
+        "smarty/smarty": "^3.1 || ^4.0",
+        "laminas/laminas-view": "^2.0",
+        "laminas/laminas-servicemanager": "^3.0"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.8",
+        "friendsofphp/php-cs-fixer": "^3.51"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "GKralik\\SmartyModule\\": "src/"
+        }
+    },
+    "scripts": {
+        "cs-check": "@cs-fix --dry-run",
+        "cs-fix": "php-cs-fixer fix -v",
+        "phpstan": "phpstan analyse src"
+    },
+    "extra": {
+        "laminas": {
+            "component": "GKralik\\SmartyModule"
+        }
+    }
+}
