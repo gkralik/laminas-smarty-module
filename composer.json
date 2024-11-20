@@ -27,8 +27,8 @@
         }
     },
     "scripts": {
-        "cs-check": "@cs-fix --dry-run",
-        "cs-fix": "php-cs-fixer fix -v",
+        "cs:check": "@cs:fix --dry-run",
+        "cs:fix": "php-cs-fixer fix -v",
         "phpstan": "phpstan analyse src"
     },
     "extra": {

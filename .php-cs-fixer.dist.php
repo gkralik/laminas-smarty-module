@@ -9,6 +9,7 @@ return (new PhpCsFixer\Config())
     ->setRules([
         '@PSR12'          => true,
         '@PHP81Migration' => true,
+        '@PHP82Migration' => true,
         'array_syntax'    => ['syntax' => 'short'],
     ])
     ->setUsingCache(true)
