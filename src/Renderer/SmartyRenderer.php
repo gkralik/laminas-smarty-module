@@ -203,11 +203,8 @@ class SmartyRenderer implements RendererInterface
      *   value is returned.
      *
      * A cache is used to speed up successive calls to the same helper.
-     *
-     * @param string $name
-     * @param array  $arguments
      */
-    public function __call($name, $arguments)
+    public function __call(string $name, array $arguments): mixed
     {
         if (!isset($this->pluginsCache[$name])) {
             $this->pluginsCache[$name] = $this->plugin($name);
