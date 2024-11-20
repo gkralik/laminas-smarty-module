@@ -186,7 +186,7 @@ class SmartyRenderer implements RendererInterface
             $this->smarty->clearAllAssign();
         }
 
-        $this->smarty->assign($values);
+        $this->smarty->assign($values); // @phpstan-ignore argument.type
 
         // add current dir to allow including partials without full path
         $this->smarty->addTemplateDir(dirname($file));
