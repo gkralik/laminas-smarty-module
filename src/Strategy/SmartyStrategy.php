@@ -18,13 +18,11 @@ use Laminas\View\ViewEvent;
 
 class SmartyStrategy extends AbstractListenerAggregate
 {
-    /** @var SmartyRenderer*/
+    /** @var SmartyRenderer */
     private $renderer;
 
     /**
      * SmartyStrategy constructor.
-     *
-     * @param SmartyRenderer $renderer
      */
     public function __construct(SmartyRenderer $renderer)
     {
@@ -32,13 +30,12 @@ class SmartyStrategy extends AbstractListenerAggregate
     }
 
     /**
-     * Attach one or more listeners
+     * Attach one or more listeners.
      *
      * Implementors may add an optional $priority argument; the EventManager
      * implementation will pass this to the aggregate.
      *
-     * @param EventManagerInterface $events
-     * @param int                   $priority
+     * @param int $priority
      *
      * @return void
      */
@@ -51,7 +48,6 @@ class SmartyStrategy extends AbstractListenerAggregate
     /**
      * Check if the renderer can load the requested template.
      *
-     * @param ViewEvent $e
      * @return bool|SmartyRenderer
      */
     public function selectRenderer(ViewEvent $e)
@@ -67,8 +63,6 @@ class SmartyStrategy extends AbstractListenerAggregate
 
     /**
      * Inject the response from the renderer.
-     *
-     * @param ViewEvent $e
      */
     public function injectResponse(ViewEvent $e): void
     {

@@ -17,7 +17,7 @@ use Laminas\ServiceManager\Factory\FactoryInterface;
 
 class SmartyStrategyFactory implements FactoryInterface
 {
-    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
+    public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         return new SmartyStrategy($container->get(SmartyRenderer::class));
     }

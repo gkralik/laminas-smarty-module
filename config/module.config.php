@@ -21,45 +21,44 @@ use GKralik\SmartyModule\Strategy\SmartyStrategyFactory;
 
 return [
     'laminas-smarty-module' => [
-        /** Template suffix */
-        'suffix'         => 'tpl',
-        /** Directory for compiled templates */
-        'compile_dir'    => getcwd() . '/cache/templates_c',
-        /** Directory for cached templates */
-        'cache_dir'      => getcwd() . '/cache/templates',
-        /** Path to smarty config file */
-        'config_dir'     => null,
-        /** Clear all assigned variables before rendering a template
+        /* Template suffix */
+        'suffix' => 'tpl',
+
+        /* Directory for compiled templates */
+        'compile_dir' => getcwd().'/cache/templates_c',
+
+        /* Directory for cached templates */
+        'cache_dir' => getcwd().'/cache/templates',
+
+        /* Path to smarty config file */
+        'config_dir' => null,
+
+        /* Clear all assigned variables before rendering a template
          * (if false, variables from child models can spill into the layout). */
         'reset_assigned_variables_before_render' => true,
-        /** Additional smarty engine options */
+
+        /* Additional smarty engine options */
         'smarty_options' => [],
 
-        /**
-         * Register a default template handler function to resolve <code>{include file="..."}</code>
-         * via SmartyResolver.
-         */
-        //'register_default_template_handler_func' => true,
+        /* Register a default template handler function to resolve <code>{include file="..."}</code>
+         * via SmartyResolver. */
+        // 'register_default_template_handler_func' => true,
     ],
-    /**
-     * Register services.
-     */
-    'service_manager'   => [
+
+    'service_manager' => [
         'factories' => [
-            ModuleOptions::class                                => ModuleOptionsFactory::class,
-            SmartyStrategy::class                               => SmartyStrategyFactory::class,
-            SmartyRenderer::class                               => SmartyRendererFactory::class,
-            'GKralik\SmartyModule\Resolver\SmartyResolver'      => SmartyResolverFactory::class,
+            ModuleOptions::class => ModuleOptionsFactory::class,
+            SmartyStrategy::class => SmartyStrategyFactory::class,
+            SmartyRenderer::class => SmartyRendererFactory::class,
+            'GKralik\SmartyModule\Resolver\SmartyResolver' => SmartyResolverFactory::class,
             'GKralik\SmartyModule\Resolver\TemplateMapResolver' => TemplateMapResolverFactory::class,
-            'GKralik\SmartyModule\Resolver\TemplatePathStack'   => TemplatePathStackResolverFactory::class,
+            'GKralik\SmartyModule\Resolver\TemplatePathStack' => TemplatePathStackResolverFactory::class,
         ],
     ],
-    /**
-     * Register view strategy with the view manager.
-     * REQUIRED.
-     */
-    'view_manager'      => [
+
+    'view_manager' => [
         'strategies' => [
+            /* Register view strategy with the view manager (REQUIRED). */
             SmartyStrategy::class,
         ],
     ],

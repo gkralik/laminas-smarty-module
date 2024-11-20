@@ -16,7 +16,7 @@ use Laminas\View\Resolver\AggregateResolver;
 
 class SmartyResolverFactory implements FactoryInterface
 {
-    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
+    public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         $resolver = new AggregateResolver();
         $resolver->attach($container->get('GKralik\SmartyModule\Resolver\TemplateMapResolver'));

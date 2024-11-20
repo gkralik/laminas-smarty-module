@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - Upgrade phpstan dependency
+- Adopt PER-CS2.0 and Symfony coding style
 
 ## [3.0.0] - 2024-03-07
 ### Added

@@ -25,7 +25,7 @@ final class ModuleOptions extends AbstractOptions
     private $cacheDir;
 
     /** @var ?string */
-    private $configDir = null;
+    private $configDir;
 
     /** @var bool */
     private $resetAssignedVariablesBeforeRender = true;
@@ -35,97 +35,61 @@ final class ModuleOptions extends AbstractOptions
 
     private bool $registerDefaultTemplateHandlerFunc = true;
 
-    /**
-     * @return string
-     */
     public function getSuffix(): string
     {
         return $this->suffix;
     }
 
-    /**
-     * @param string $suffix
-     */
     public function setSuffix(string $suffix): void
     {
         $this->suffix = $suffix;
     }
 
-    /**
-     * @return string
-     */
     public function getCompileDir(): string
     {
         return $this->compileDir;
     }
 
-    /**
-     * @param string $compileDir
-     */
     public function setCompileDir(string $compileDir): void
     {
         $this->compileDir = $compileDir;
     }
 
-    /**
-     * @return string
-     */
     public function getCacheDir(): string
     {
         return $this->cacheDir;
     }
 
-    /**
-     * @param string $cacheDir
-     */
     public function setCacheDir(string $cacheDir): void
     {
         $this->cacheDir = $cacheDir;
     }
 
-    /**
-     * @return string
-     */
     public function getConfigDir(): ?string
     {
         return $this->configDir;
     }
 
-    /**
-     * @param string $configDir
-     */
     public function setConfigDir(?string $configDir): void
     {
         $this->configDir = $configDir;
     }
 
-    /**
-     * @return bool
-     */
     public function shouldResetAssignedVariablesBeforeRender(): bool
     {
         return $this->resetAssignedVariablesBeforeRender;
     }
 
-    /**
-     * @param bool $resetAssignedVariablesBeforeRender
-     */
     public function setResetAssignedVariablesBeforeRender(bool $resetAssignedVariablesBeforeRender): void
     {
         $this->resetAssignedVariablesBeforeRender = $resetAssignedVariablesBeforeRender;
     }
 
-    /**
-     * @return array
-     */
     public function getSmartyOptions(): array
     {
         return $this->smartyOptions;
     }
 
-    /**
-     * @param array $smartyOptions
-     */
     public function setSmartyOptions(array $smartyOptions): void
     {
         $this->smartyOptions = $smartyOptions;
@@ -140,6 +104,4 @@ final class ModuleOptions extends AbstractOptions
     {
         $this->registerDefaultTemplateHandlerFunc = $registerDefaultTemplateHandlerFunc;
     }
-
-
 }

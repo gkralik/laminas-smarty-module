@@ -18,7 +18,7 @@ use Laminas\View\Resolver\TemplatePathStack;
 
 class TemplatePathStackResolverFactory implements FactoryInterface
 {
-    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
+    public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         /** @var ModuleOptions $options */
         $options = $container->get('GKralik\SmartyModule\ModuleOptions');

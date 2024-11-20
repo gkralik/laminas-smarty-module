@@ -13,13 +13,12 @@ namespace GKralik\SmartyModule\Renderer;
 
 use GKralik\SmartyModule\ModuleOptions;
 use Interop\Container\ContainerInterface;
-use Smarty;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\View\Resolver\ResolverInterface;
 
 class SmartyRendererFactory implements FactoryInterface
 {
-    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
+    public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         /** @var ModuleOptions $options */
         $options = $container->get('GKralik\SmartyModule\ModuleOptions');
@@ -27,10 +26,10 @@ class SmartyRendererFactory implements FactoryInterface
         /** @var ResolverInterface $resolver */
         $resolver = $container->get('GKralik\SmartyModule\Resolver\SmartyResolver');
 
-        $smartyEngine = new Smarty();
+        $smartyEngine = new \Smarty();
 
         foreach ($options->getSmartyOptions() as $option => $value) {
-            $setter = [$smartyEngine, 'set' . str_replace(' ', '', ucwords(str_replace('_', ' ', $option)))];
+            $setter = [$smartyEngine, 'set'.str_replace(' ', '', ucwords(str_replace('_', ' ', $option)))];
 
             if (is_callable($setter)) {
                 call_user_func_array($setter, [$value]);
