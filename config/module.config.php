@@ -43,6 +43,12 @@ return [
         'reset_assigned_variables_before_render' => true,
         /** Additional smarty engine options */
         'smarty_options' => [],
+
+        /**
+         * Register a default template handler function to resolve <code>{include file="..."}</code>
+         * via SmartyResolver.
+         */
+        //'register_default_template_handler_func' => true,
     ],
     /**
      * Register services.

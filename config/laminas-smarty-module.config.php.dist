@@ -38,5 +38,13 @@ return [
 
         /** Additional smarty engine options. */
         'smarty_options' => [],
+
+        /**
+         * Register a default template handler function to resolve <code>{include file="..."}</code>
+         * via SmartyResolver.
+         *
+         * Enabled by default.
+         */
+        //'register_default_template_handler_func' => true,
     ],
 ];

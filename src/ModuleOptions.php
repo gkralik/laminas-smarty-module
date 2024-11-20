@@ -42,6 +42,8 @@ final class ModuleOptions extends AbstractOptions
     /** @var array */
     private $smartyOptions = [];
 
+    private bool $registerDefaultTemplateHandlerFunc = true;
+
     /**
      * @return string
      */
@@ -137,4 +139,16 @@ final class ModuleOptions extends AbstractOptions
     {
         $this->smartyOptions = $smartyOptions;
     }
+
+    public function shouldRegisterDefaultTemplateHandlerFunc(): bool
+    {
+        return $this->registerDefaultTemplateHandlerFunc;
+    }
+
+    public function setRegisterDefaultTemplateHandlerFunc(bool $registerDefaultTemplateHandlerFunc): void
+    {
+        $this->registerDefaultTemplateHandlerFunc = $registerDefaultTemplateHandlerFunc;
+    }
+
+
 }

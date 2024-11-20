@@ -22,7 +22,7 @@ namespace GKralik\SmartyModule\Renderer;
 
 use ArrayAccess;
 use ArrayObject;
-use GKralik\SmartyModule\ModuleOptions;
+use Closure;
 use Smarty;
 use SmartyException;
 use Laminas\ServiceManager\ServiceManager;
@@ -265,5 +265,50 @@ class SmartyRenderer implements RendererInterface
         return $this->getHelperPluginManager()
             ->setRenderer($this)
             ->get($name, $options);
+    }
+
+    /**
+     * Register the default template handler function for Smarty.
+     *
+     * @return void
+     */
+    public function registerDefaultTemplateHandlerFunc(): void
+    {
+        $handlerFunc = Closure::fromCallable([$this, '_handleFileResourceNotFound']);
+        $this->smarty->registerDefaultTemplateHandler($handlerFunc); // @phpstan-ignore argument.type
+    }
+
+    /**
+     * Default template handler.
+     *
+     * This function is called when Smarty's <code>file:</code> resource is unable to load a requested file.
+     *
+     * The function resolves the resource via the configured {@link $resolver}.
+     * This allows <code>{include file=""}</code> to work with everything the resolver can resolve (eg. using the
+     * template map resolver to include partials).
+     *
+     * @param string   $type     Resource type (e.g. "file", "string", "eval", "resource")
+     * @param string   $name     Resource name (e.g. "foo/bar.tpl")
+     * @param string|null  &$content  Template's content
+     * @param integer|null &$modified Template's modification time
+     * @param Smarty   $smarty   Smarty instance
+     *
+     * @return string|boolean   Path to file or boolean true if $content and $modified
+     *                          have been filled, boolean false if no default template
+     *                          could be loaded.
+     */
+    private function _handleFileResourceNotFound(string $type, string $name, ?string &$content, ?int &$modified, Smarty $smarty): bool|string
+    {
+        if ($type !== 'file') {
+            // The default handler is currently only invoked for file resources.
+            // It is not triggered when the resource itself cannot be found, in which case a SmartyException is thrown.
+            // To be on the safe side with future changes from Smarty, return early if the resource type is not 'file'.
+            return false;
+        }
+
+        $resolvedTemplate = $this->resolver->resolve($name);
+
+        // Return the resolved template path or false to tell Smarty we could not find anything.
+        return $resolvedTemplate ?: false;
     }
 }

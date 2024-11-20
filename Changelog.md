@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+### Added
+- Add a default template handler function to enable resolving Smarty `{include file="..."}` tags via the resolver.
+
 ### Changed
 - Upgrade phpstan dependency
 
