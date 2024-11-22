@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+## [3.1.0] - 2024-11-22
 ### Added
 - Add a default template handler function to enable resolving Smarty `{include file="..."}` tags via the resolver.
 
@@ -14,5 +16,6 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Initial version (based on [gkralik/zf3-smarty-module](https://github.com/gkralik/zf3-smarty-module)).
 
-[Unreleased]: https://github.com/gkralik/laminas-smarty-module/compare/3.0.0...HEAD
-[3.0.0]: https://github.com/gkralik/laminas-smarty-module/releases/tag/3.0.0
+[Unreleased]: https://github.com/gkralik/laminas-smarty-module/compare/v3.1.0...HEAD
+[3.1.0]: https://github.com/gkralik/laminas-smarty-module/compare/v3.0.0...v3.1.0
+[3.0.0]: https://github.com/gkralik/laminas-smarty-module/releases/tag/v3.0.0
