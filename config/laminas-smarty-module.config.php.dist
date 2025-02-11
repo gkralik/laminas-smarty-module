@@ -8,33 +8,42 @@
  * file that was distributed with this source code.
  */
 
+use GKralik\SmartyModule\Strategy\SmartyStrategy;
+
 return [
     'laminas-smarty-module' => [
-        /** Template suffix. */
-        'suffix'         => 'tpl',
+        /* Template suffix. */
+        'suffix' => 'tpl',
 
-        /** Directory for compiled templates. */
-        'compile_dir'    => getcwd() . '/cache/templates_c',
+        /* Directory for compiled templates. */
+        'compile_dir' => getcwd().'/cache/templates_c',
 
-        /** Directory for cached templates. */
-        'cache_dir'      => getcwd() . '/cache/templates',
+        /* Directory for cached templates. */
+        'cache_dir' => getcwd().'/cache/templates',
 
-        /** Path to smarty config file */
-        'config_dir'     => null,
+        /* Path to smarty config file */
+        'config_dir' => null,
 
-        /** Clear all assigned variables before rendering a template
-          * (if false, variables from child models can spill into the layout). */
+        /* Clear all assigned variables before rendering a template
+         * (if false, variables from child models can spill into the layout). */
         'reset_assigned_variables_before_render' => true,
 
-        /** Additional smarty engine options. */
+        /* Additional smarty engine options. */
         'smarty_options' => [],
 
-        /**
+        /*
          * Register a default template handler function to resolve <code>{include file="..."}</code>
          * via SmartyResolver.
          *
          * Enabled by default.
          */
-        //'register_default_template_handler_func' => true,
+        // 'register_default_template_handler_func' => true,
+    ],
+
+    'view_manager' => [
+        'strategies' => [
+            /* Register view strategy with the view manager (REQUIRED). */
+            SmartyStrategy::class,
+        ],
     ],
 ];

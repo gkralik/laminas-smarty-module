@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+### Changed
+- **BC BREAK** The `SmartyStrategy` strategy must be registered manually.
 
 ## [3.1.0] - 2024-11-22
 ### Added

@@ -55,11 +55,4 @@ return [
             'GKralik\SmartyModule\Resolver\TemplatePathStack' => TemplatePathStackResolverFactory::class,
         ],
     ],
-
-    'view_manager' => [
-        'strategies' => [
-            /* Register view strategy with the view manager (REQUIRED). */
-            SmartyStrategy::class,
-        ],
-    ],
 ];

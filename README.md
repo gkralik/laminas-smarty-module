@@ -21,6 +21,27 @@ Add the module to your applications configuration to enable it:
 ]
 ```
 
+## Usage
+
+To enable the Smarty rendering strategy, it must be registered as a strategy with the Laminas ViewManager
+(eg. in the application's default module configuration):
+
+```php
+use GKralik\SmartyModule\Strategy\SmartyStrategy;
+
+return [
+    // ...
+    'view_manager' => [
+        'strategies' => [
+            /* Register view strategy with the view manager (REQUIRED). */
+            SmartyStrategy::class,
+        ],
+    ],
+];
+```
+
+**Important:** As of version _4.0.0_, this is no longer done automatically.
+
 ## Configuration
 
 For information on supported options refer to the [module config file](config/module.config.php).
