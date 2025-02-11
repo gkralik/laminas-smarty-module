@@ -9,7 +9,7 @@ Based on [gkralik/zf3-smarty-module](https://github.com/gkralik/zf3-smarty-modul
 Installing via [Composer](http://getcomposer.org) is the only supported method.
 
 ```shell
-$ composer require gkralik/laminas-smarty-module:^3.0.0
+$ composer require gkralik/laminas-smarty-module:^4.0.0
 ```
 
 Add the module to your applications configuration to enable it:
