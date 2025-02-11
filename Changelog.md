@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+
+## [4.0.0] - 2025-02-11
 ### Changed
 - **BC BREAK** The `SmartyStrategy` strategy must be registered manually.
 
@@ -18,6 +20,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Initial version (based on [gkralik/zf3-smarty-module](https://github.com/gkralik/zf3-smarty-module)).
 
-[Unreleased]: https://github.com/gkralik/laminas-smarty-module/compare/v3.1.0...HEAD
+[Unreleased]: https://github.com/gkralik/laminas-smarty-module/compare/v4.0.0...HEAD
+[4.0.0]: https://github.com/gkralik/laminas-smarty-module/compare/v3.1.0...v4.0.0
 [3.1.0]: https://github.com/gkralik/laminas-smarty-module/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/gkralik/laminas-smarty-module/releases/tag/v3.0.0
